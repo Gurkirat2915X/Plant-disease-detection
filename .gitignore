@@ -1,3 +1,6 @@
 .venv/
 db.sqlite3
 test.py
+venv/
+website/website/__pycache__/
+__pycache__/
