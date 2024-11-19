@@ -1,0 +1,27 @@
+.nav-head{
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: #fdc10e;
+}
+
+.nav-head > span {
+    color: #357529;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+.title-background{
+    background-image: url('./assets/title-background.jpg');
+    width: auto;
+}
+
+.jumbotron-h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 200px;
+    color: white;
+}
