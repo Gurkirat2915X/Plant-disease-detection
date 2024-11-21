@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'disease_detector',
+    'django_cleanup.apps.CleanupConfig',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -131,3 +134,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 AUTH_USER_MODEL = 'disease_detector.User'
 LOGIN_REDIRECT_URL = "/dashboard"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
