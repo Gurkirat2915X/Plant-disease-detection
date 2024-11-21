@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agritech - Detect Diseases</title>
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.png">
+    <link rel="stylesheet" href="./css/detector.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar" class="navbar navbar-expand-lg bg-body-secondary p-3 px-4">
+        <div class="container-fluid">
+          <a href="#navbar" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img class="bi me-2" src="./images/logo.png" width="40" height="35"></img>
+            <span class="fs-4 nav-head"><span>AGRI</span>TECH</span>
+          </a>
+    
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#navbar" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="./static/tech-arch.html" class="nav-link">The Model</a></li>
+            <li class="nav-item"><a href="./static/detector.html" class="nav-link active">Detect</a></li>
+            <li class="nav-item"><a href="./static/team.html" class="nav-link">The Team</a></li>
+          </ul>
+        </div>
+    </nav>
+
+    <section class="title">
+        <div class="p-5 text-center ">
+            <div class="container py-5 pb-3">
+                <h1 class="text-body-emphasis">Detect Diseases</h1>
+              <p class="col-lg-8 mx-auto lead">
+                Let our AI analyze and detect plant diseases for you—quickly and accurately.
+              </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="model">
+        <div class="container">
+
+            <main class="app">
+                
+                <div class="input-div">
+                    <p class="drag-drop">Drag & drop images here or <span class="browse">browse to upload.</span></p>
+                    <div class="upload-button">
+                        <p>Upload Photos</p>
+                    </div>
+                    <p class="file-type">File must be PNG, JPEG or JPG and upto 10MB</p>
+                    <input type="file" class="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg"/>
+                </div>
+
+            </main>
+            
+          </div>
+        </div>
+      </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
