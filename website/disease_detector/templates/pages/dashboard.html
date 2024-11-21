@@ -1,0 +1,25 @@
+{% extends 'templates\temp1.html' %}
+
+{% block title %}
+    Dashboard
+{% endblock title %}
+
+{% block content %}
+    <h1>Hi {{user.username}}</h1>
+    <h2>Welcome to your dashboard</h2>
+    <p>Here you can see your previous results and other details</p>
+    New features coming soon
+    <h2>
+        Previous results
+    </h2>
+    <ol>
+    {% for detection in detections %}
+        <li>
+            {{detection.result}} detected on {{detection.date}}
+        </li>
+    {% endfor %}
+    </ol>
+        
+{% endblock content %}
+    
+    

@@ -118,8 +118,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_DIRS = (os.path.join(BASE_DIR, 'static'),
-               )
+# STATIC_DIRS = (os.path.join(BASE_DIR, 'static'),
+#                )
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
@@ -129,3 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #My settings
 # TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
+AUTH_USER_MODEL = 'disease_detector.User'
+LOGIN_REDIRECT_URL = "/dashboard"
