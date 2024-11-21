@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 200px;
 }
 
 .input-div {
@@ -73,3 +74,31 @@
     opacity: 0;
     cursor: pointer;
 }
+
+#process h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+    text-align: center;
+    padding: 60px 0px;
+    margin: 0;
+}
+
+#process h3{
+    font-size: 30px;
+}
+
+.cards{
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    justify-content: center;
+    align-items: center;
+}
+
+#footer {
+    padding-bottom: 1px;
+  }
