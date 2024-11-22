@@ -1,0 +1,68 @@
+.nav-head{
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: #fdc10e;
+}
+
+.nav-head > span {
+    color: #357529;
+}
+
+.navbar {
+    background-color: #fdc10e;
+}
+
+.team-member{
+    display:flex;
+    gap: 30px;
+    margin: 50px auto;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+}
+
+.name{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin: 0;
+}
+
+.sub{
+    margin-bottom: 20px;
+}
+
+.img img {
+    border-radius: 15px;
+    box-shadow: rgba(239, 243, 15, 0.4) -5px 5px, rgba(239, 243, 15, 0.3) -10px 10px, rgba(239, 243, 15, 0.2) -15px 15px, rgba(239, 243, 15, 0.1) -20px 20px, rgba(239, 243, 15, 0.05) -25px 25px;
+}
+
+.member-2 .img img{
+    box-shadow: rgba(26, 190, 5, 0.4) 5px 5px, rgb(26, 190, 5, 0.3) 10px 10px, rgba(26, 190, 5, 0.2) 15px 15px, rgba(26, 190, 5, 0.1) 20px 20px, rgba(26, 190, 5, 0.05) 25px 25px;
+}
+
+.member-4 .img img{
+    box-shadow: rgba(26, 190, 5, 0.4) 5px 5px, rgb(26, 190, 5, 0.3) 10px 10px, rgba(26, 190, 5, 0.2) 15px 15px, rgba(26, 190, 5, 0.1) 20px 20px, rgba(26, 190, 5, 0.05) 25px 25px;
+}
+
+.featurette-divider{
+    margin: 25px 0px;
+}
+
+.member-5{
+    margin-bottom: 100px;
+}
+
+#footer {
+    padding-bottom: 1px;
+  }

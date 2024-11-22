@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from .utils import load_image
 
 # Create your views here.
 def index(request):
@@ -49,5 +50,17 @@ def register(request):
         login(request, user)
         return HttpResponseRedirect(reverse('disease_detector:dashboard'))
     return render(request, 'pages/register.html')
-
+def model_intro(request):
+    return render(request, 'pages/model_intro.html')
+def team(request):
+    return render(request, 'pages/team.html')
+@login_required(login_url='disease_detector:login')
+def detect(request):
+    if request.method == 'POST':
+        image = request.FILES['image']
+        print(image)
+        print(request.user)
+        load_image(image)
+        
+    return render(request, 'pages/detect.html')
 

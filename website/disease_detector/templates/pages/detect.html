@@ -1,0 +1,51 @@
+{% extends 'layouts/layout1.html' %}
+{% block title %}
+    Agritech - detect
+{% endblock title %}
+{% load static %}
+{% block css_files %}
+      <link rel="stylesheet" href="{% static 'css/detector.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+<section class="title">
+    <div class="p-5 text-center ">
+        <div class="container py-5 pb-3">
+            <h1 class="text-body-emphasis">Detect Diseases</h1>
+          <p class="col-lg-8 mx-auto lead">
+            Let our AI analyze and detect plant diseases for you—quickly and accurately.
+          </p>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="model">
+    <div class="container">
+
+        <main class="app">
+            
+            <form action="">
+              <div class="input-div">
+                <p class="drag-drop">Drag & drop images here or <span class="browse">browse to upload.</span></p>
+                <div class="upload-button">
+                    <p>Upload Photos</p>
+                </div>
+                <p class="file-type">File must be PNG, JPEG or JPG and upto 10MB</p>
+                <input type="file" name="image"class="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg"/>
+            </div>
+            </form>
+
+        </main>
+
+      </div>
+    </div>
+</section> -->
+<form action="{% url 'disease_detector:detect' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="image">Upload Image:</label>
+    <input type="file" name="image" id="image" title="Choose an image file" placeholder="Select an image">
+    <br>
+    <button type="submit">Detect</button>
+</form>
+{% endblock content %}
+    

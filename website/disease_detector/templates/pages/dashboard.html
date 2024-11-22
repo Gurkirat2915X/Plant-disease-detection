@@ -1,14 +1,21 @@
-{% extends 'templates\temp1.html' %}
+{% extends 'layouts/layout1.html' %}
 
 {% block title %}
     Dashboard
 {% endblock title %}
 
+
 {% block content %}
-    <h1>Hi {{user.username}}</h1>
+    <h1>Hi {{user.first_name}}</h1>
     <h2>Welcome to your dashboard</h2>
     <p>Here you can see your previous results and other details</p>
     New features coming soon
+    <h2>
+        New detection
+    </h2>
+    <a href="{% url 'disease_detector:detect' %}">
+        <button type="button">New detection</button>
+    </a>
     <h2>
         Previous results
     </h2>
