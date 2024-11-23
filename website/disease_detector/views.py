@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .utils import load_image
+from .utils import load_image, detector
 
 # Create your views here.
 def index(request):
@@ -60,7 +60,12 @@ def detect(request):
         image = request.FILES['image']
         print(image)
         print(request.user)
-        load_image(image)
+        result = detector(image)
+        result.show()
+        
         
     return render(request, 'pages/detect.html')
+
+def result(request):
+    return render(request, 'pages/result.html')
 
