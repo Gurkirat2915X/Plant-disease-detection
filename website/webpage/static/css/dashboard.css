@@ -1,0 +1,19 @@
+.logo-title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: #fdc10e;
+}
+
+.logo-title > span {
+    color: #357529;
+}
+
+.main-container{
+    display: flex;
+}
+
+.dashboard-sec{
+    display: flex;
+    flex-direction: column;
+}

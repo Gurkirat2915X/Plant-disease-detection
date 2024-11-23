@@ -1,0 +1,118 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Good day",
+        "How can you help me?",
+        "Is anyone there?"
+      ],
+      "responses": [
+        "Hello! Welcome to AgriTech.",
+        "Hi there! How can I assist you with plant care today?",
+        "Hello! Looking for help with plant health?",
+        "Welcome to AgriTech! How can we help you?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "Goodbye",
+        "See you later",
+        "Talk to you soon"
+      ],
+      "responses": [
+        "Goodbye! Stay healthy and so should your plants!",
+        "See you soon! Feel free to reach out any time.",
+        "Bye! Take care of your plants!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thank you",
+        "Thanks a lot",
+        "That's helpful",
+        "Thanks!"
+      ],
+      "responses": [
+        "You're welcome! Let me know if you need anything else.",
+        "Glad to help! Happy farming!",
+        "My pleasure! Keep your plants thriving."
+      ]
+    },
+    {
+      "tag": "services",
+      "patterns": [
+        "What services do you offer?",
+        "How can you help with farming?",
+        "What does AgriTech do?",
+        "Tell me about your services"
+      ],
+      "responses": [
+        "AgriTech provides AI-powered plant disease detection and care tips using image analysis.",
+        "We help farmers and gardeners detect plant diseases and suggest remedies with AI.",
+        "Our platform uses AI to identify plant diseases and provide care recommendations."
+      ]
+    },
+    {
+      "tag": "disease_detection",
+      "patterns": [
+        "How do I detect plant diseases?",
+        "Can you analyze plant diseases?",
+        "What diseases can you detect?",
+        "How does your disease detection work?"
+      ],
+      "responses": [
+        "Upload an image of the plant, and our AI will detect the disease and suggest remedies.",
+        "Simply take a photo of your plant, and our system will identify potential diseases.",
+        "Our AI model detects diseases based on uploaded plant images and provides guidance."
+      ]
+    },
+    {
+      "tag": "tips",
+      "patterns": [
+        "Can you give me tips for healthy plants?",
+        "How do I care for my plants?",
+        "Any advice for preventing plant diseases?",
+        "Share plant care tips"
+      ],
+      "responses": [
+        "Ensure your plants get enough sunlight and water, and check them regularly for signs of disease.",
+        "Use quality soil and avoid overwatering to keep your plants healthy.",
+        "Rotate crops and keep your tools clean to prevent the spread of plant diseases."
+      ]
+    },
+    {
+      "tag": "image_upload",
+      "patterns": [
+        "How do I upload an image?",
+        "Can I upload plant photos?",
+        "Where do I upload a plant image?",
+        "How do I start the disease detection?"
+      ],
+      "responses": [
+        "Click on the 'Upload Image' button on our homepage to start the detection process.",
+        "Go to the image upload section and submit a photo of your plant for analysis.",
+        "Simply upload a clear picture of the affected plant area, and our AI will analyze it."
+      ]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Tell me a farming joke",
+        "Make me laugh",
+        "Do you know any jokes about plants?"
+      ],
+      "responses": [
+        "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "Why don’t trees use computers? They’re afraid of logging in!",
+        "What kind of plant needs a password? A secure-t!"
+      ]
+    }
+  ]
+}
