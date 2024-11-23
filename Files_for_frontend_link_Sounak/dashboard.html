@@ -1,0 +1,37 @@
+{% extends 'layouts/layout1.html' %}
+
+{% block title %}
+    Dashboard
+{% endblock title %}
+
+
+{% block content %}
+{% if message %}
+        <div>{{ message }}</div>
+{% endif %}
+    <h1>Hi {{user.first_name}}</h1>
+    <h2>Welcome to your dashboard</h2>
+    <p>Here you can see your previous results and other details</p>
+    New features coming soon
+    <h2>
+        New detection
+    </h2>
+    <a href="{% url 'disease_detector:detect' %}">
+        <button type="button">New detection</button>
+    </a>
+    <h2>
+        Previous results
+    </h2>
+    <ol>
+    {% for detection in detections %}
+        <li>
+            <a href="{% url 'disease_detector:result' detection.id %}">
+                {{detection.result}} detected on {{detection.date}}
+            </a>
+        </li>
+    {% endfor %}
+    </ol>
+        
+{% endblock content %}
+    
+    

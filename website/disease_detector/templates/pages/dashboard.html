@@ -6,6 +6,9 @@
 
 
 {% block content %}
+{% if message %}
+        <div>{{ message }}</div>
+{% endif %}
     <h1>Hi {{user.first_name}}</h1>
     <h2>Welcome to your dashboard</h2>
     <p>Here you can see your previous results and other details</p>
@@ -22,7 +25,9 @@
     <ol>
     {% for detection in detections %}
         <li>
-            {{detection.result}} detected on {{detection.date}}
+            <a href="{% url 'disease_detector:result' detection.id %}">
+                {{detection.result}} detected on {{detection.date}}
+            </a>
         </li>
     {% endfor %}
     </ol>

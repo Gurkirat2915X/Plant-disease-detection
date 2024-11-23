@@ -36,6 +36,7 @@
           <ul class="nav nav-pills">
             <li class="nav-item"><a href="{% url 'disease_detector:index' %}" class="nav-link" id="home_link" aria-current="page">Home</a></li>
             {% if user.is_authenticated %}
+            <li class="nav-item"><a href="{% url 'disease_detector:dashboard' %}" class="nav-link" id="home_link" aria-current="page">Dashboard</a></li>
             <li class="nav-item"><a href="{% url 'disease_detector:logout' %}" class="nav-link" id="home_link" aria-current="page">Logout</a></li>
             {% endif %}
       
@@ -51,7 +52,7 @@
       <div class="container">
           <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5">
             <div class="col mb-3 col-md-6">
-              <img src="./static/images/logo.png" alt="" width="60px">
+              <img src="{% static 'images/logo.png' %}" alt="" width="60px">
               <p class="text-body-secondary">© 2024</p>
             </div>
             

@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .utils import load_image, detector
+from .utils import detector
+from django.conf import settings
 
 # Create your views here.
 def index(request):
@@ -14,7 +15,7 @@ def index(request):
     return render(request, 'pages/index.html')
 @login_required(login_url='disease_detector:login')
 def dashboard(request):
-    detections = detection.objects.filter(by=request.user)
+    detections = detection.objects.filter(by=request.user).order_by('-date')
     return render(request, 'pages/dashboard.html', {'detections': detections, 'user': request.user})
 def login_view(request):
     if request.user.is_authenticated:
@@ -60,12 +61,26 @@ def detect(request):
         image = request.FILES['image']
         print(image)
         print(request.user)
-        result = detector(image)
-        result.show()
-        
-        
+        new_detection = detection(by=request.user, image=image)
+        new_detection.save()
+        print(new_detection.id)
+        result = detector(image,new_detection.id)
+        new_detection.result = result['name']
+        new_detection.confidence = result['confidence']
+        new_detection.detection_img = result['image']
+        new_detection.save()
+        return HttpResponseRedirect(reverse('disease_detector:result', args=(new_detection.id,)))
+
     return render(request, 'pages/detect.html')
 
-def result(request):
-    return render(request, 'pages/result.html')
+def result(request, id):
+    try:
+        detection_obj = detection.objects.get(id=id)
+        print(detection_obj)
+        if detection_obj.by != request.user:
+            return HttpResponseRedirect(reverse('disease_detector:dashboard',{'message':'You are not authorized to view this page'}))
+        return render(request, 'pages/result.html', {'detection': detection_obj,'media_url':settings.MEDIA_URL})
+    except:
+        return HttpResponseRedirect(reverse('disease_detector:dashboard',{'message':'Detection not found'}))
+    
 

@@ -1,0 +1,30 @@
+{% extends 'layouts/layout1.html' %}
+
+{% block title %}
+    Agritech - Result
+{% endblock title %}
+    
+{% load static %}
+
+{% block content %}
+    {{detection.name}}
+    {% if detection.result == None %}
+        <h1>Results</h1>
+        <h2>Sorry, we could not detect any disease</h2>
+        <h3>Image sent</h3>
+        <img src="{{media_url}}{{detection.image}}" alt="Actual Disease">
+    {% else %}
+        <h1>Result</h1>
+        <h2>
+            The disease detected is {{detection.result}}
+        </h2>
+        <h3>Image sent</h3>
+        <img src="{{media_url}}{{detection.image}}" alt="Actual Disease">
+        <h3>Image detected</h3>
+        <img src="{{media_url}}{{detection.detection_img}}" alt="Predicted Disease">
+        <h3>Confidence: {{detection.confidence}}%</h3>
+        <p>detected on {{detection.date}}</p>
+    {% endif %}
+        
+{% endblock content %}
+    
