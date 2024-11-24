@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <%- include('partials/header.ejs') %>
-
+<%- include('partials/chatbot.ejs') %>
     <section id="title">
         <div class="px-4 py-5 my-5 text-center">
             <img class="d-block mx-auto mb-4" src="/images/logo.png" alt="" width="100">
@@ -28,55 +28,299 @@
         <hr class="featurette-divider">
     </section>
         
-    <section id="">
+    <section id="tech-arch">
         <div class="container px-4 py-5">
             
             <h2 class="pb-2">Technical Architecture</h2>
-            <div class="tech-arch">
-                <div class="code-snippet">
-                    <pre>
-                    <code class="language-python">
-                        import torch
-                        import cv2
-                        import numpy as np
-                        from ultralytics import YOLO
-                        from segment_anything import SAM
+            <div class="snippets-div">
+                <div class="tech-arch">
+                    <div class="code-snippet">
+                        <pre>
+                        <code class="language-python">
+                            import torch
+                            import cv2
+                            import numpy as np
+                            from ultralytics import YOLO
+                            from segment_anything import SAM
 
-                        def plant_disease_detection_workflow(leaf_image):
-                        # Segmentation using SAM 
-                        segmented_regions = sam_predictor.segment(leaf_image) 
-                        # Disease classification with YOLO 
-                        disease_results = yolo_model.predict(segmented_regions) 
-                
-                        # Generate comprehensive report 
-                        return { 
-                            'disease_type': disease_results.class_name,
-                            'confidence_score': disease_results.confidence,
-                            'affected_area_percentage': disease_results.area_percentage 
-                        }
-                    </code>
-                    </pre>
-                </div>
-                <div class="code-explain">
-                    <p>Our model follows a straightforward three-step process:</p>
-                    <ol>
-                    <li><span style="font-weight: 600;">Image Input & Segmentation:</span> Takes a plant image and uses SAM to precisely cut out individual leaf/stem regions</li>
-                    <li><span style="font-weight: 600;">Disease Analysis:</span> YOLO examines these segments to identify specific diseases</li>
-                    <li><span style="font-weight: 600;">Report Generation:</span> Creates a detailed report containing:
-                    <ul>
-                        <li>Type of disease detected.</li>
-                        <li>How confident the model is about its diagnosis(confidence score)?</li>
-                        <li>What percentage of the plant is affected?</li>
-                    </ul></li>
-                    </ol>
-                    <p style="font-weight: 400; font-size:20px;">A digital plant doctor: analyzing plant parts, diagnosing diseases, and delivering a detailed health report! 🌿🔍</p> 
+                            def plant_disease_detection_workflow(leaf_image):
+                            # Segmentation using SAM 
+                            segmented_regions = sam_predictor.segment(leaf_image) 
+                            # Disease classification with YOLO 
+                            disease_results = yolo_model.predict(segmented_regions) 
+                    
+                            # Generate comprehensive report 
+                            return { 
+                                'disease_type': disease_results.class_name,
+                                'confidence_score': disease_results.confidence,
+                                'affected_area_percentage': disease_results.area_percentage 
+                            }
+                        </code>
+                        </pre>
+                    </div>
+                    <div class="code-explain">
+                        <p>Our model follows a straightforward three-step process:</p>
+                        <ol>
+                        <li><span style="font-weight: 600;">Image Input & Segmentation:</span> Takes a plant image and uses SAM to precisely cut out individual leaf/stem regions</li>
+                        <li><span style="font-weight: 600;">Disease Analysis:</span> YOLO examines these segments to identify specific diseases</li>
+                        <li><span style="font-weight: 600;">Report Generation:</span> Creates a detailed report containing:
+                        <ul>
+                            <li>Type of disease detected.</li>
+                            <li>How confident the model is about its diagnosis(confidence score)?</li>
+                            <li>What percentage of the plant is affected?</li>
+                        </ul></li>
+                        </ol>
+                        <p style="font-weight: 400; font-size:20px;">A digital plant doctor: analyzing plant parts, diagnosing diseases, and delivering a detailed health report! 🌿🔍</p> 
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="tech-arch">
+                    <div class="code-snippet">
+                        <pre>
+                        <code class="language-python">
+                            # Data Preprocessing
+                            def preprocess_image(image_path):
+                                """
+                                Prepare image for model analysis
+                                """
+                                image = cv2.imread(image_path)
+                                image = cv2.resize(image, (224, 224))
+                                image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+                                return image / 255.0
+
+                        </code>
+                        </pre>
+                    </div>
+                    <div class="code-explain-grid">
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/material-rounded/24/image.png" alt="image"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Load Image</h3>
+                              <p>This at first loads an image from a file path.</p>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/ios-filled/50/resize.png" alt="resize"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Resize</h3>
+                              <p>Then it resizes image to 224x224 pixels.</p>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/material-outlined/24/refresh--v1.png" alt="refresh--v1"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Convert Color Space</h3>
+                              <p>It then converts color space from BGR to RGB</p>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/ios-filled/50/grid.png" alt="grid"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Normalize Pixel Values</h3>
+                              <p>Lastly, the program normalizes pixel values to range [0, 1].</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tech-arch">
+                    <div class="code-snippet">
+                        <pre>
+                        <code class="language-python">
+                            # SAM Segmentation Function
+                            def segment_plant_regions(image, sam_model):
+                                """
+                                Use SAM to segment specific plant regions
+                                """
+                                masks = sam_model.predict(
+                                    image, 
+                                    points=None, 
+                                    box=None, 
+                                    multimask_output=True
+                                    )
+                                return masks
+
+                        </code>
+                        </pre>
+                    </div>
+                    <div class="code-explain-grid-2">
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/ios-glyphs/30/rebalance-portfolio.png" alt="rebalance-portfolio"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Segment Anything Model</h3>
+                              <p>This uses Segment Anything Model (SAM) to identify and segment specific regions in a plant image.</p>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/material-rounded/30/output.png" alt="output"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Extract Mask Outputs</h3>
+                              <p>Then it extracts multiple potential mask outputs for different plant area.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tech-arch">
+                    <div class="code-snippet">
+                        <pre>
+                        <code class="language-python">
+                            # YOLO Disease Classification
+                            def classify_plant_disease(segmented_image, yolo_model):
+                                """
+                                Detect and classify plant diseases
+                                """
+                                results = yolo_model(segmented_image)
+                                return {
+                                    'class': results[0].names[results[0].probs.top1],
+                                    'confidence': results[0].probs.top1conf.item()
+                                }
+
+                        </code>
+                        </pre>
+                    </div>
+                    <div class="code-explain-grid-2">
+
+                        <div class="col d-flex align-items-start">
+                            <img width="=30" height="30" style="margin-right:10px;" src="https://img.icons8.com/ios-filled/50/yolo.png" alt="rfid-signal"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">YOLO</h3>
+                              <p>Applies YOLO (You Only Look Once) model to detect and classify diseases in a segmented plant region.</p>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/ios-glyphs/30/class.png" alt="image"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Disease & Confidence Score</h3>
+                              <p>Returns the predicted disease class and confidence score.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tech-arch">
+                    <div class="code-snippet">
+                        <pre>
+                        <code class="language-python">
+                            # Main Workflow Integration
+                            def analyze_plant_health(image_path, sam_model, yolo_model):
+                                """
+                                Comprehensive plant health analysis pipeline
+                                """
+                                processed_image = preprocess_image(image_path)
+                                segmented_regions = segment_plant_regions(processed_image, sam_model)
+                                diseases = []
+
+                                for region in segmented_regions:
+                                disease_info = classify_plant_disease(region, yolo_model)
+                                diseases.append(disease_info)
+
+                                return diseases
+
+                            # Model Loading
+                            sam_model = SAM.load_model('sam_vit_h_4b8939.pth')
+                            yolo_model = YOLO('best.pt')  # Trained on plant disease dataset
+
+                        </code>
+                        </pre>
+                    </div>
+                    <div class="code-explain-flex-2">
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/external-glyph-geotatah/50/external-analyse-merger-and-acquisition-glyph-glyph-geotatah.png" alt="external-analyse-merger-and-acquisition-glyph-glyph-geotatah"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Integration and Analysis</h3>
+                              <p>Integrates preprocessing, segmentation, and disease classification and processes an image through multiple stages of analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/ios-filled/50/list.png" alt="list"/>
+                            <div>
+                              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Disease Information</h3>
+                              <p>Returns a list of disease information for different plant regions.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>      
             <div class="workflow-diagram container px-4 py-5">
                 <h2>Workflow Diagram</h2>
                 <img src="/images/workflow-diagram.png" alt="Workflow diagram" style="height: 365px;">
+                <p style="text-align: center; font-size:20px;">The overall workflow combines image preprocessing, advanced segmentation using SAM, and 
+                    disease classification with YOLO to provide comprehensive plant health analysis.</p>
             </div>
+
+            <div class="container mechanism-div">
+                <h2>Mechanism</h2>
+                <div class="mechanism">
+                    <div class="points">
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/material-rounded/30/training.png" alt="training"/>
+                            <div>
+                            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Model Training</h3>
+                            <ul>
+                                <li>It starts with a pre-trained dataset of plant leaf images, which includes annotations for various diseases, 
+                                    leveraging the YOLOv11 object detection model.</li>
+                                <li>The pre-trained YOLOv11 model is then fine-tuned on this dataset to perform accurate leaf detection and disease classification.</li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="points">
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/material-sharp/30/realtime-protection.png" alt="realtime protection"/>
+                            <div>
+                            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Real-time Image Processing</h3>
+                            <ul>
+                                <li>A camera captures real-time image from the farm.</li>
+                                <li>This image feed is then processed by the trained CNN model for "Classification & Detection".</li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="points">
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/material-rounded/24/processor.png" alt="processor"/>
+                            <div>
+                            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Embedded Hardware</h3>
+                            <ul>
+                                <li>The trained deep learning model is deployed on embedded hardware for real-time inference.</li>
+                                <li>This allows on-site classification and detection of crop diseases.</li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="points">
+                        <div class="col d-flex align-items-start">
+                            <img width="30" height="30" style="margin-right:10px;" src="https://img.icons8.com/material-outlined/24/output.png" alt="output"/>
+                            <div>
+                            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Output</h3>
+                            <p style="font-size: 20px;">The final output shows the detected and classified crop diseases, such as "potato_late_blight: 99%".</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>    
+        
+        <div class="model-imgs">
+            <img src="/images/model-pic1.png" alt="model image">
+            <img src="/images/model-pic2.png" alt="model image">
+            <img src="/images/model-pic3.png" alt="model image">
+        </div>    
             
         </div>  
     </section>
