@@ -28,17 +28,27 @@ h3{
 .sent-image{
     margin-bottom: 40px;
     width: 400px;
-    max-width: 500px;
+    max-width: 850px;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: 0.2s;
+}
+
+.sent-image:hover{
+    width: 800px;
 }
 
 .received-image{
     margin-bottom: 40px;
     width: 400px;
-    max-width: 500px;
+    max-width: 850px;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: 0.2s;
+}
+
+.received-image:hover{
+    width: 800px;
 }
 
 .date{
