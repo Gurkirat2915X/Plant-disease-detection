@@ -2,16 +2,15 @@ from django.shortcuts import render
 from .models import detection, User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,JsonResponse
 from django.urls import reverse
-from .utils import detector
+from .utils import detector, chatbot,care_tips
 from django.conf import settings
+
 
 # Create your views here.
 def index(request):
     fields = User._meta.get_fields()
-    for field in fields:
-        print(field)
     return render(request, 'pages/index.html')
 @login_required(login_url='disease_detector:login')
 def dashboard(request):
@@ -59,28 +58,32 @@ def team(request):
 def detect(request):
     if request.method == 'POST':
         image = request.FILES['image']
-        print(image)
-        print(request.user)
         new_detection = detection(by=request.user, image=image)
         new_detection.save()
-        print(new_detection.id)
         result = detector(image,new_detection.id)
         new_detection.result = result['name']
         new_detection.confidence = result['confidence']
         new_detection.detection_img = result['image']
+        new_detection.class_name = int(result['class'])
         new_detection.save()
         return HttpResponseRedirect(reverse('disease_detector:result', args=(new_detection.id,)))
 
     return render(request, 'pages/detect.html')
-
+@login_required(login_url='disease_detector:login')
 def result(request, id):
     try:
         detection_obj = detection.objects.get(id=id)
         print(detection_obj)
         if detection_obj.by != request.user:
             return HttpResponseRedirect(reverse('disease_detector:dashboard',{'message':'You are not authorized to view this page'}))
-        return render(request, 'pages/result.html', {'detection': detection_obj,'media_url':settings.MEDIA_URL})
+        return render(request, 'pages/result.html', {'detection': detection_obj,'media_url':settings.MEDIA_URL,'tips':care_tips[detection_obj.class_name]["cure"]})
     except:
         return HttpResponseRedirect(reverse('disease_detector:dashboard',{'message':'Detection not found'}))
     
-
+def chat(request):
+    if request.method == 'POST':
+        chat = chatbot(request.POST['message'])
+        return JsonResponse({
+            "response": chat
+        }) 
+    return JsonResponse({"response": "Invalid request"})
