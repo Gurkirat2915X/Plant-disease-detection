@@ -1,8 +1,14 @@
-{% extends 'layouts/layout1.html' %} {% block title %} Agritech - Result {%
-endblock title %} {% load static %} {% block css_files %}
+{% extends 'layouts/layout1.html' %} 
+{% block title %} 
+Agritech - Result 
+{%endblock title %} 
+{% load static %} 
+{% block css_files %}
 <link rel="stylesheet" href="{% static '/css/result.css' %}" />
-{% endblock css_files %} {% block content %} {{detection.name}} {% if
-detection.result == None %}
+{% endblock css_files %} 
+{% block content %} '
+{{detection.name}} 
+{% if detection.result == None %}
 <h1>Results</h1>
 <h2>Sorry, we could not detect any disease</h2>
 <h3>Image sent</h3>
@@ -51,4 +57,5 @@ detection.result == None %}
     </div>
   </div>
 </section>
-{% endif %} {% endblock content %}
+{% endif %} 
+{% endblock content %}

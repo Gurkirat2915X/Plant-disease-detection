@@ -106,6 +106,9 @@
       </div>
 
       <div class="dashboard-sec">
+        {% if message %}
+          <div>{{ message }}</div>
+        {% endif %}
         <h1>Hi {{user.first_name}}!</h1>
         <hr class="featurette-divider" />
         <div class="dashboard-flex">
