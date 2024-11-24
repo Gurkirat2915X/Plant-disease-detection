@@ -8,3 +8,37 @@
 .nav-head > span {
     color: #357529;
 }
+
+.code-snippet{
+    display: inline-block;
+    border-radius: 7px;
+    background-color: #2d2d2d;
+    padding: 0px 40px 0px 40px;
+    margin: 0px 0px 10px 0px;
+}
+
+.tech-arch {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.code-explain p {
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.code-explain li {
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.featurette-divider {
+    margin: 0px 200px 50px 200px;
+}
+
+#footer {
+    padding-bottom: 1px;
+}

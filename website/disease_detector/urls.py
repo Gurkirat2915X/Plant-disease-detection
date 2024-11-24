@@ -1,7 +1,8 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-app_name = 'disease_detector'
+
+app_name = "disease_detector"
 from . import views
 
 urlpatterns = [
@@ -15,5 +16,4 @@ urlpatterns = [
     path("detect", views.detect, name="detect"),
     path("result/<int:id>", views.result, name="result"),
     path("chat", views.chat, name="chat"),
-
-] 
+]

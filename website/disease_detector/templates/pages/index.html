@@ -1,4 +1,5 @@
 {% extends 'layouts/layout0.html' %}
+
 {% load static %}
 {% block title %}
     Agritech
@@ -6,6 +7,7 @@
     
 
 {% block content %}
+{% include 'layouts/chatbot.html' %}
 <section id="title">
   <div class="p-5 text-center bg-body-tertiary title-background">
     <div class="container py-5">
@@ -14,9 +16,9 @@
       <p class="col-lg-8 mx-auto lead" style="font-size: 30px; color: white; margin-top: -20px;">
         Where Agriculture Meets Technology
       </p>
-      <a href="#overview">
+     <a href="{% url 'disease_detector:login' %}">
       <button class="btn btn-primary px-5 mb-5" type="button" style="margin-top:25px;">
-      Learn More
+        Get Started
         </button></a>
     </div>
   </div>

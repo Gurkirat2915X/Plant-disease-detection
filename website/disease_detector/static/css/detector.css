@@ -99,6 +99,34 @@
     align-items: center;
 }
 
+.image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.preview-image {
+    max-width: 100px; /* Set a max width for the preview image */
+    max-height: 100px; /* Set a max height for the preview image */
+    margin: 5px; /* Add some space between images */
+    border-radius: 5px; /* Optional: Add border radius */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.highlight {
+    border: 2px dashed #007bff; /* Highlight border */
+    background-color: rgba(0, 123, 255, 0.1); /* Light background */
+}
+
+.error-display {
+    margin-top: 10px; /* Space above error message */
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+}
+
 #footer {
     padding-bottom: 1px;
   }

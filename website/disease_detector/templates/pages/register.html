@@ -1,39 +1,164 @@
-{% extends 'layouts/layout1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <title>Agritech - Register</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/favicon.png' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <a href="{% url 'disease_detector:index' %}">
+        <img
+          class="logo"
+          src="{% static '/images/logo.png' %}"
+          alt="Agritech Logo"
+        />
+      </a>
+      <div class="form-box">
+        <h1 id="title">Register</h1>
 
-{% block title %}
-    Register
-{% endblock title %}
+        {% if message %}
+        <div style="color: red">{{ message }}</div>
+        {% endif %}
 
-{% block content %}
-        
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
-<h1>
-    Register
-</h1>
-<form action="{% url 'disease_detector:register' %}" method="post">
-    {% csrf_token %}
-    <div class="form-group">
-        <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+        <form
+          action="{% url 'disease_detector:register' %}"
+          method="post"
+          id="register"
+        >
+          {% csrf_token %}
+          <div class="input-group">
+            <div class="input-field">
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/material-rounded/24/new-post.png"
+                alt="email"
+              />
+              <input
+                type="text"
+                placeholder="Username"
+                id="username"
+                name="username"
+                required
+              />
+            </div>
+            <div class="input-field" id="nameField">
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/material-rounded/24/user.png"
+                alt="user"
+                id="name"
+              />
+              <input
+                type="text"
+                placeholder="First Name"
+                id="first_name"
+                name="first_name"
+                required
+              />
+            </div>
+            <div class="input-field" id="nameField">
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/material-rounded/24/user.png"
+                alt="user"
+                id="name"
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                id="last_name"
+                name="last_name"
+                required
+              />
+            </div>
+
+            <div class="input-field">
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/material-rounded/24/new-post.png"
+                alt="email"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="input-field">
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/material-rounded/24/password.png"
+                alt="password"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+
+            <div class="input-field">
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/material-rounded/24/password.png"
+                alt="confirm password"
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                id="confirmPassword"
+                required
+              />
+            </div>
+            <div id="error" class="error disable" id="confirmPasswordError">
+              <p>*Passwords do not match</p>
+            </div>
+
+            <p>
+              Already have an account?
+              <a href="{% url 'disease_detector:login' %}">Login</a>
+            </p>
+          </div>
+          <div class="btn-field">
+            <button type="submit" onclick="return validate()">Register</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="form-group">
-        <input autofocus class="form-control" type="text" name="first_name" placeholder="First name">
-    </div>
-    <div class="form-group">
-        <input autofocus class="form-control" type="text" name="last_name" placeholder="Last name">
-    </div>
-    <div class="form-group">
-        <input autofocus class="form-control" type="email" name="email" placeholder="Email">
-    <div class="form-group">
-        <input class="form-control" type="password" name="password" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="password" name="password2" placeholder="Confirm Password">
-    </div>
-    <input class="btn btn-primary" type="submit" value="Register">
-</form>
-    
-{% endblock content %}
-    
-    
+    <script>
+      function validate() {
+        const passwordField = document.getElementById("password").value;
+        const cnfPasswordField =
+          document.getElementById("confirmPassword").value;
+
+        if (passwordField !== cnfPasswordField) {
+          document.getElementById("error").classList.remove("disable");
+        } else {
+          document.getElementById("error").classList.add("disable");
+          let form = document.getElementById("register");
+          form.submit();
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

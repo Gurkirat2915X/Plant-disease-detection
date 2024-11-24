@@ -1,4 +1,8 @@
-
+document.addEventListener('DOMContentLoaded', function() {
+  const messageContainer = document.createElement('div');
+  messageContainer.classList.add('bot');
+  messageContainer.textContent = "AgriBot: Hi! I'm AgriBot. How can I help you today?";
+  document.getElementById('chatbot-messages').appendChild(messageContainer);})
 function toggleChatbot() {
   const chatbotContainer = document.getElementById('chatbot-container');
   
@@ -19,9 +23,10 @@ function toggleChatbot() {
     const userInput = document.getElementById('user-input');
     const userMessage = userInput.value.trim();
     if (userMessage) {
-      addMessage(userMessage, 'user');
+      addMessage("User: "+userMessage, 'user');
       userInput.value = '';
       getBotResponse(userMessage);
+
     }
   }
 
@@ -35,17 +40,22 @@ function toggleChatbot() {
 
   function getBotResponse(userMessage) {
 
-    let botResponse = "I didn't understand that. Can you rephrase?";
+    let botResponse = "AgriBot: I didn't understand that. Can you rephrase?";
     // add the fetch call to the backend here
-    if (userMessage.toLowerCase().includes("services")) {
-      botResponse = "We offer AI-based plant disease detection and care tips!";
-    } else if (userMessage.toLowerCase().includes("help")) {
-      botResponse = "I'm here to help with plant disease detection. Upload an image of your plant.";
-    }
+    // csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    const url = document.getElementById("chatbot-container").getAttribute("data-url")
+    fetch(url,{
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+        // 'X-CSRFToken':csrftoken,
+      },
+      body: JSON.stringify({'message':userMessage})
+    }).then(response=>response.json()).then(data=>{
+      addMessage(data.response,"bot")
+    })
   
-    setTimeout(() => {
-      addMessage(botResponse, 'bot');
-    }, 1000);
+    
   }
 
   function closeChatbot() {

@@ -1,51 +1,142 @@
 {% extends 'layouts/layout1.html' %}
 {% block title %}
-    Agritech - detect
+    Detect Diseases
 {% endblock title %}
 {% load static %}
 {% block css_files %}
-      <link rel="stylesheet" href="{% static 'css/detector.css' %}">
+<link rel="stylesheet" href="{% static '/css/detector.css' %}">
 {% endblock css_files %}
 
 {% block content %}
-<section class="title">
-    <div class="p-5 text-center ">
-        <div class="container py-5 pb-3">
-            <h1 class="text-body-emphasis">Detect Diseases</h1>
-          <p class="col-lg-8 mx-auto lead">
-            Let our AI analyze and detect plant diseases for you—quickly and accurately.
-          </p>
-        </div>
-    </div>
-</section>
-
-<!-- <section class="model">
-    <div class="container">
-
-        <main class="app">
-            
-            <form action="">
-              <div class="input-div">
-                <p class="drag-drop">Drag & drop images here or <span class="browse">browse to upload.</span></p>
-                <div class="upload-button">
-                    <p>Upload Photos</p>
-                </div>
-                <p class="file-type">File must be PNG, JPEG or JPG and upto 10MB</p>
-                <input type="file" name="image"class="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg"/>
+        
+    <section class="title">
+        <div class="p-5 text-center ">
+            <div class="container py-5 pb-3">
+                <h1 class="text-body-emphasis">Detect Diseases</h1>
+              <p class="col-lg-8 mx-auto lead">
+                Let our AI analyze and detect plant diseases for you—quickly and accurately.
+              </p>
             </div>
-            </form>
+        </div>
+    </section>
 
-        </main>
+    <section class="model">
+        <div class="container">
 
-      </div>
-    </div>
-</section> -->
-<form action="{% url 'disease_detector:detect' %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <label for="image">Upload Image:</label>
-    <input type="file" name="image" id="image" title="Choose an image file" placeholder="Select an image">
-    <br>
-    <button type="submit">Detect</button>
-</form>
-{% endblock content %}
+            <main class="app">
+                
+                <form action="{% url 'disease_detector:detect' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                  <div class="input-div" id="drop-area">
+                    <p class="drag-drop">Drag & drop images here or <span class="browse">browse to upload.</span></p>
+                    <div class="upload-button">
+                        <p>Upload Photos</p>
+                    </div>
+                    <p class="file-type">File must be PNG, JPEG or JPG and upto 10MB</p>
+                    <input type="file" id="fileInput" name="image" class="file"  accept="image/jpeg, image/png, image/jpg"/>
+                    <div id="fileNameDisplay" class="file-name-display"></div>
+                    <div id="imagePreview" class="image-preview"></div>
+                    <div id="errorDisplay" class="error-display" style="color: red;"></div>
+                    </div>
+                    <div class="text-center mt-3 button-div">
+                    <button type="submit" id="submitButton" class="btn btn-primary" style="display: none;">Detect Now 
+                        <img width="15" height="15" src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1"/>
+                    </button>
+                </div>
+                </form>
+
+            </main>
+
+          </div>
+        </div>
+    </section>
     
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const imagePreview = document.getElementById('imagePreview');
+        const dropArea = document.getElementById('drop-area');
+        const errorDisplay = document.getElementById('errorDisplay');
+        const submitButton = document.getElementById('submitButton');
+    
+        // Function to handle file uploads
+        function handleFiles(files) {
+            // Clear previous content
+            fileNameDisplay.textContent = '';
+            imagePreview.innerHTML = '';
+            errorDisplay.textContent = ''; // Clear previous errors
+            submitButton.style.display = 'none'; // Hide the submit button initially
+    
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+            const validFiles = [];
+            let invalidFiles = [];
+    
+            Array.from(files).forEach(file => {
+                if (validImageTypes.includes(file.type)) {
+                    validFiles.push(file);
+                } else {
+                    invalidFiles.push(file.name);
+                }
+            });
+    
+            if (validFiles.length > 0) {
+                const fileNames = validFiles.map(file => file.name).join(', ');
+                fileNameDisplay.textContent = `Uploaded file(s): ${fileNames}`;
+    
+                validFiles.forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = file.name;
+                        img.classList.add('preview-image'); // Add a class for styling
+                        imagePreview.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                });
+    
+                submitButton.style.display = 'block'; // Show the submit button if valid files are uploaded
+            }
+    
+            if (invalidFiles.length > 0) {
+                errorDisplay.textContent = `Invalid file type(s): ${invalidFiles.join(', ')}. Please upload only PNG, JPEG, or JPG files.`;
+            }
+        }
+    
+        // Listen for file input change
+        fileInput.addEventListener('change', function(event) {
+            handleFiles(event.target.files);
+        });
+    
+        // Prevent default behaviors for drag-and-drop
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+    
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    
+        // Highlight drop area when dragging files over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.classList.add('highlight'), false);
+        });
+    
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.classList.remove('highlight'), false);
+        });
+    
+        // Handle dropped files
+        dropArea.addEventListener('drop', (event) => {
+            const dt = event.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        });
+    </script>
+    
+{% endblock content %}
+
+
+
