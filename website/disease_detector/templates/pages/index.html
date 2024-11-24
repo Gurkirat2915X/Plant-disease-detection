@@ -1,41 +1,65 @@
-{% extends 'layouts/layout0.html' %}
-
-{% load static %}
-{% block title %}
-    Agritech
-{% endblock title %}
-    
-
-{% block content %}
-{% include 'layouts/chatbot.html' %}
+{% extends 'layouts/layout0.html' %} {% load static %} {% block title %}
+Agritech {% endblock title %} {% block content %} {% include
+'layouts/chatbot.html' %}
 <section id="title">
   <div class="p-5 text-center bg-body-tertiary title-background">
     <div class="container py-5">
-      <img src="{% static 'images/logo.png' %}" style="width: 170px;" alt="Agritech Logo">
-      <h1 class="text-body-emphasis jumbotron-h1"><span style="color: white;">AGRITECH</span></h1>
-      <p class="col-lg-8 mx-auto lead" style="font-size: 30px; color: white; margin-top: -20px;">
+      <img
+        src="{% static 'images/logo.png' %}"
+        style="width: 170px"
+        alt="Agritech Logo"
+      />
+      <h1 class="text-body-emphasis jumbotron-h1">
+        <span style="color: white">AGRITECH</span>
+      </h1>
+      <p
+        class="col-lg-8 mx-auto lead"
+        style="font-size: 30px; color: white; margin-top: -20px"
+      >
         Where Agriculture Meets Technology
       </p>
-     <a href="{% url 'disease_detector:login' %}">
-      <button class="btn btn-primary px-5 mb-5" type="button" style="margin-top:25px;">
-        Get Started
-        </button></a>
+      <a href="{% url 'disease_detector:login' %}">
+        <button
+          class="btn btn-primary px-5 mb-5"
+          type="button"
+          style="margin-top: 25px"
+        >
+          Get Started
+        </button></a
+      >
     </div>
   </div>
 </section>
 <section id="overview">
   <div class="container px-4 py-5">
-    <h2 class="pb-2 border-bottom" style="font-weight: 600;">Overview</h2>
+    <h2 class="pb-2 border-bottom" style="font-weight: 600">Overview</h2>
 
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
       <div class="col d-flex flex-column align-items-start gap-2">
-        <h2 class="fw-bold text-body-emphasis">Integrated Plant Disease Detection System</h2>
-        <p class="text-body-secondary">In the realm of precision agriculture, the detection of plant diseases is crucial for maintaining crop 
-          health and optimizing yields. Our project leverages advanced technologies, specifically the Segment Anything Model (SAM) and 
-          YOLOv11, to develop a robust model for detecting diseased plants based on their leaves and stems.</p>
-        <a href="#main-project" class="btn btn-primary btn-lg">Explore
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+        <h2 class="fw-bold text-body-emphasis">
+          Integrated Plant Disease Detection System
+        </h2>
+        <p class="text-body-secondary">
+          In the realm of precision agriculture, the detection of plant diseases
+          is crucial for maintaining crop health and optimizing yields. Our
+          project leverages advanced technologies, specifically the Segment
+          Anything Model (SAM) and YOLOv11, to develop a robust model for
+          detecting diseased plants based on their leaves and stems.
+        </p>
+        <a href="#main-project" class="btn btn-primary btn-lg"
+          >Explore
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+            />
           </svg>
         </a>
       </div>
@@ -44,43 +68,101 @@
         <div class="row row-cols-1 row-cols-sm-2 g-4">
           <div class="col d-flex flex-column gap-2">
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-collection" viewBox="0 0 16 16">
-                <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="black"
+                class="bi bi-collection"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"
+                />
               </svg>
             </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Leaf, Stem and Fruit Analysis</h4>
-            <p class="text-body-secondary">The model first identifies the plant using its leaves, stems, and fruits. It classifies the plant as healthy or diseased.</p>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">
+              Leaf, Stem and Fruit Analysis
+            </h4>
+            <p class="text-body-secondary">
+              The model first identifies the plant using its leaves, stems, and
+              fruits. It classifies the plant as healthy or diseased.
+            </p>
           </div>
 
           <div class="col d-flex flex-column gap-2">
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-gear-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                />
               </svg>
             </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Disease Classification</h4>
-            <p class="text-body-secondary">Accurate detection of various diseases based on visual symptoms.</p>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">
+              Disease Classification
+            </h4>
+            <p class="text-body-secondary">
+              Accurate detection of various diseases based on visual symptoms.
+            </p>
           </div>
 
           <div class="col d-flex flex-column gap-2">
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
-                <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.39.39 0 0 0-.029-.518z"/>
-                <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.95 11.95 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-speedometer"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.39.39 0 0 0-.029-.518z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.95 11.95 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0"
+                />
               </svg>
             </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Image Segmentation</h4>
-            <p class="text-body-secondary">Provides precise region isolation, SAM implementation, Advanced boundary detection and Multi-part segmentation</p>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">
+              Image Segmentation
+            </h4>
+            <p class="text-body-secondary">
+              Provides precise region isolation, SAM implementation, Advanced
+              boundary detection and Multi-part segmentation
+            </p>
           </div>
 
           <div class="col d-flex flex-column gap-2">
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
-                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-table"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"
+                />
               </svg>
             </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Cure and Avoidance Recommendations</h4>
-            <p class="text-body-secondary">Provides specific treatment options and preventive measures for identified diseases.</p>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">
+              Cure and Avoidance Recommendations
+            </h4>
+            <p class="text-body-secondary">
+              Provides specific treatment options and preventive measures for
+              identified diseases.
+            </p>
           </div>
         </div>
       </div>
@@ -134,10 +216,9 @@
   </div>  
 </section> -->
 
-    <script>
-            document.getElementById('home_link').classList.add('active');
-            document.getElementById('home_link').setAttribute("href", '#');
-            document.getElementById('logo_id').setAttribute("href", '#');
-    </script>
+<script>
+  document.getElementById("home_link").classList.add("active");
+  document.getElementById("home_link").setAttribute("href", "#");
+  document.getElementById("logo_id").setAttribute("href", "#");
+</script>
 {% endblock content %}
-    
