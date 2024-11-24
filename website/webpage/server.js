@@ -17,6 +17,10 @@ app.get("/detect", (req, res) => {
     res.render('detector.ejs');
 })
 
+app.get("/result", (req, res) => {
+    res.render('result.ejs');
+})
+
 app.get("/model", (req, res) => {
     res.render('tech-arch.ejs');
 })

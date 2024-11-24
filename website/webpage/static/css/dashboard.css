@@ -13,7 +13,27 @@
     display: flex;
 }
 
-.dashboard-sec{
+.dashboard-flex{
     display: flex;
     flex-direction: column;
+}
+
+.main-container-dash{
+    display: flex;
+    gap: 20px;
+}
+
+.dashboard-sec {
+    flex-grow: 2;
+}
+
+.featurette-divider{
+    margin-right: 20px;
+}
+
+.dashboard-sec > h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    padding-top: 25px;
 }
