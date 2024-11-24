@@ -36,6 +36,12 @@
                 <div class="code-snippet">
                     <pre>
                     <code class="language-python">
+                        import torch
+                        import cv2
+                        import numpy as np
+                        from ultralytics import YOLO
+                        from segment_anything import SAM
+
                         def plant_disease_detection_workflow(leaf_image):
                         # Segmentation using SAM 
                         segmented_regions = sam_predictor.segment(leaf_image) 
