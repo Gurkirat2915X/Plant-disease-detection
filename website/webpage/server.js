@@ -7,7 +7,7 @@ app.use(express.static("static"));
 
 app.get("/", (req, res) => {
     res.render('index.ejs');
-})
+});
 
 app.get("/team", (req, res) => {
     res.render('team.ejs');
@@ -15,19 +15,19 @@ app.get("/team", (req, res) => {
 
 app.get("/detect", (req, res) => {
     res.render('detector.ejs');
-})
+});
 
 app.get("/result", (req, res) => {
     res.render('result.ejs');
-})
+});
 
 app.get("/model", (req, res) => {
     res.render('tech-arch.ejs');
-})
+});
 
 app.get("/dashboard", (req, res) => {
     res.render('dashboard.ejs');
-})
+});
 
 app.get("/register", (req, res) => {
     res.render('register.ejs');

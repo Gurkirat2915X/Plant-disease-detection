@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agritech - The Model</title>
-    <link rel="icon" type="image/x-icon" href="./icons/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://firebasestorage.googleapis.com/v0/b/fusion-appointment.appspot.com/o/favicon.png?alt=media&token=fc859baa-33d4-480e-a373-83466513325d">
     <link rel="stylesheet" href="/css/tech-arch.css">
+    <link rel="stylesheet" href="/css/prism.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +15,67 @@
 </head>
 <%- include('partials/header.ejs') %>
 
+    <section id="title">
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/images/logo.png" alt="" width="100">
+            <h1 class="display-5 fw-bold text-body-emphasis">The Model</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, 
+                    the world's most popular front-end open source toolkit, featuring Sass variables and mixins, 
+                    responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p> 
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </section>
+        
+    <section id="">
+        <div class="container px-4 py-5">
+            
+            <h2 class="pb-2">Technical Architecture</h2>
+            <div class="tech-arch">
+                <div class="code-snippet">
+                    <pre>
+                    <code class="language-python">
+                        def plant_disease_detection_workflow(leaf_image):
+                        # Segmentation using SAM 
+                        segmented_regions = sam_predictor.segment(leaf_image) 
+                        # Disease classification with YOLO 
+                        disease_results = yolo_model.predict(segmented_regions) 
+                
+                        # Generate comprehensive report 
+                        return { 
+                            'disease_type': disease_results.class_name,
+                            'confidence_score': disease_results.confidence,
+                            'affected_area_percentage': disease_results.area_percentage 
+                        }
+                    </code>
+                    </pre>
+                </div>
+                <div class="code-explain">
+                    <p>Our model follows a straightforward three-step process:</p>
+                    <ol>
+                    <li><span style="font-weight: 600;">Image Input & Segmentation:</span> Takes a plant image and uses SAM to precisely cut out individual leaf/stem regions</li>
+                    <li><span style="font-weight: 600;">Disease Analysis:</span> YOLO examines these segments to identify specific diseases</li>
+                    <li><span style="font-weight: 600;">Report Generation:</span> Creates a detailed report containing:
+                    <ul>
+                        <li>Type of disease detected.</li>
+                        <li>How confident the model is about its diagnosis(confidence score)?</li>
+                        <li>What percentage of the plant is affected?</li>
+                    </ul></li>
+                    </ol>
+                    <p style="font-weight: 400; font-size:20px;">A digital plant doctor: analyzing plant parts, diagnosing diseases, and delivering a detailed health report! 🌿🔍</p> 
+                    </div>
+                </div>
+            </div>
+            <div class="workflow-diagram container px-4 py-5">
+                <h2>Workflow Diagram</h2>
+                <img src="/images/workflow-diagram.png" alt="Workflow diagram" style="height: 365px;">
+            </div>
+            
+        </div>  
+    </section>
 
 <%- include('partials/footer.ejs') %>
+<script src="/js/prism-final.js"></script>
 </body>
 </html>
