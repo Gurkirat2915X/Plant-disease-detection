@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agritech</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/">
+            <img class="logo" src="/images/logo.png" alt="Agritech Logo">
+        </a>
+        <div class="form-box">
+            <h1 id="title">Register</h1>
+            <form id="register">
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/user.png" alt="user" id="name"/>
+                        <input type="text" placeholder="Name" id="name" required>
+                        
+                    </div>
+
+                    <div class="input-field">
+                        <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/new-post.png" alt="email"/>
+                        <input type="email" placeholder="Email" id="email" required>
+                        
+                    </div>
+                        
+                    <div class="input-field">
+                        <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/password.png" alt="password"/>
+                        <input type="password" placeholder="Password" id="password" required>
+                        
+                    </div>
+
+                    <div class="input-field">
+                        <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/password.png" alt="confirm password"/>
+                        <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
+                    </div>
+                    <div id="error" class="error disable" id="confirmPasswordError"><p>*Passwords do not match</p></div>
+                    
+                    <p>Already have an account? <a href="/login">Login</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="submit" onclick="return validate()">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function validate(){
+            
+            const passwordField = document.getElementById("password").value;
+            const cnfPasswordField = document.getElementById("confirmPassword").value;
+            
+            if (passwordField !== cnfPasswordField){
+                document.getElementById("error").classList.remove("disable");
+            } else {
+                document.getElementById("error").classList.add("disable");
+
+                window.location.href = "/dashboard";
+            }
+        }
+    </script>
+</body>
+</html>
