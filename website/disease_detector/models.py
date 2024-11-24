@@ -14,6 +14,7 @@ class detection(models.Model):
     confidence = models.FloatField(null=True,blank=True)
     date = models.DateTimeField(auto_now_add=True)
     feed_back = models.CharField(max_length=100, null=True,blank=True)
+    class_name  =  models.IntegerField(null=True,blank=True)
 
     def __str__(self):
         return f'{self.by.username} - {self.result} - {self.confidence}% - {self.date}'

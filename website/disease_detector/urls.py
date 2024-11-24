@@ -14,6 +14,6 @@ urlpatterns = [
     path("team", views.team, name="team"),
     path("detect", views.detect, name="detect"),
     path("result/<int:id>", views.result, name="result"),
-    
+    path("chat", views.chat, name="chat"),
 
 ] 

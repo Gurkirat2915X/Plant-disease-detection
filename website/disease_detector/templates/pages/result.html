@@ -24,6 +24,12 @@
         <img src="{{media_url}}{{detection.detection_img}}" alt="Predicted Disease">
         <h3>Confidence: {{detection.confidence}}%</h3>
         <p>detected on {{detection.date}}</p>
+        <h2>Some tips</h2>
+        <ul>
+        {% for tip in tips %}
+         <li>{{tip}}</li>   
+        {% endfor %}
+        </ul>  
     {% endif %}
         
 {% endblock content %}
