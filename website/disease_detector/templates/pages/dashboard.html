@@ -141,15 +141,17 @@
           <p style="font-size: 20px">
             Take a look at your previous detections!
           </p>
-          <ol>
-            {% for detection in detections %}
-            <li>
-              <a href="{% url 'disease_detector:result' detection.id %}">
-                {{detection.result}} detected on {{detection.date}}
-              </a>
-            </li>
-            {% endfor %}
-          </ol>
+          <div class="scroll_result">
+            <ol>
+              {% for detection in detections %}
+              <li>
+                <a href="{% url 'disease_detector:result' detection.id %}">
+                  {{detection.result}} detected on {{detection.date}}
+                </a>
+              </li>
+              {% endfor %}
+            </ol>
+          </div>
         </div>
       </div>
     </div>
