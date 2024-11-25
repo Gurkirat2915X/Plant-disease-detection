@@ -136,4 +136,5 @@ AUTH_USER_MODEL = 'disease_detector.User'
 LOGIN_REDIRECT_URL = "/dashboard"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
+USE_TZ = True
+TIME_ZONE = 'Asia/Kolkata'

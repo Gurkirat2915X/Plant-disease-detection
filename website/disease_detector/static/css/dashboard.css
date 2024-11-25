@@ -37,3 +37,7 @@
     font-style: normal;
     padding-top: 25px;
 }
+.scroll_result{
+    overflow-y: auto;
+    height: 100px;
+}

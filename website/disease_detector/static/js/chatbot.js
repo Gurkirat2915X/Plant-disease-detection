@@ -35,6 +35,7 @@ function toggleChatbot() {
     messageContainer.classList.add(sender);
     messageContainer.textContent = message;
     document.getElementById('chatbot-messages').appendChild(messageContainer);
+    document.getElementById('chatbot-messages').scrollTop = document.getElementById('chatbot-messages').scrollHeight;
   }
   
 
