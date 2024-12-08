@@ -9,24 +9,22 @@ Agritech
   <div class="p-5 text-center bg-body-tertiary title-background">
     <div class="container py-5">
       <img
+        class="jumbotron-logo"
         src="{% static 'images/logo.png' %}"
-        style="width: 170px"
         alt="Agritech Logo"
       />
       <h1 class="text-body-emphasis jumbotron-h1">
         <span style="color: white">AGRITECH</span>
       </h1>
       <p
-        class="col-lg-8 mx-auto lead"
-        style="font-size: 30px; color: white; margin-top: -20px"
+        class="col-lg-8 mx-auto lead jumbotron-p"
       >
         Where Agriculture Meets Technology
       </p>
       <a href="{% url 'disease_detector:login' %}">
         <button
-          class="btn btn-primary px-5 mb-5"
+          class="btn btn-primary px-5 mb-5 jumbotron-btn"
           type="button"
-          style="margin-top: 25px"
         >
           Get Started
         </button></a

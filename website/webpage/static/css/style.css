@@ -25,6 +25,136 @@ html {
     font-size: 13rem;
 }
 
+.jumbotron-logo{
+  width: 170px;
+}
+
+.jumbotron-p{
+  font-size: 30px;
+  color: white; 
+  margin-top: -20px;
+}
+
+.jumbotron-btn{
+  margin-top: 25px;
+}
+
+.icon-bg{
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#footer {
+    padding-bottom: 1px;
+}
+
+
+@media(min-width: 319px) and (max-width: 751px){
+
+    .jumbotron-h1{
+      font-size: 2.4rem;
+    }
+  
+    .container-fluid{
+      padding: 0 !important;
+    }
+
+    .container-fluid > a{
+      margin: 0 !important;
+    }
+  
+    .jumbotron-logo{
+      width: 70px;
+    }
+
+    .jumbotron-p{
+      font-size: 12px !important;
+      margin-top: -10px;
+    }
+
+    .jumbotron-btn{
+      margin-top: 0;
+      font-size: 13px !important;
+    }
+
+    .footer-item{
+      margin-top: 30px;
+    }
+}
+
+@media(min-width: 751px) and (max-width: 1200px){
+  .jumbotron-h1{
+    font-size: 6rem;
+  }
+
+  .jumbotron-logo {
+    width: 110px;
+  }
+
+  .jumbotron-p{
+    font-size: 20px;
+    color: white; 
+    margin-top: -15px;
+  }
+
+  .jumbotron-btn{
+    margin-top:5px;
+  }
+
+  .container-fluid > a{
+    margin: 0 !important;
+  }
+
+}
+
+@media(min-width: 1201px) and (max-width: 1600px){
+  .jumbotron-h1{
+    font-size: 11rem;
+  }
+}
+
+@media(min-width: 1601px){
+  .nav-head{
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: #fdc10e;
+}
+
+.nav-head > span {
+    color: #357529;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+.title-background{
+    background-image: url('../images/title-background.jpg');
+    width: auto;
+}
+
+.jumbotron-h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 13rem;
+}
+
+.jumbotron-logo{
+  width: 170px;
+}
+
+.jumbotron-p{
+  font-size: 30px;
+  color: white; 
+  margin-top: -20px;
+}
+
+.jumbotron-btn{
+  margin-top:25px;
+}
+
 .icon-bg{
   padding: 10px;
   border-radius: 10px;
@@ -33,3 +163,5 @@ html {
   #footer {
     padding-bottom: 1px;
   }
+}
+

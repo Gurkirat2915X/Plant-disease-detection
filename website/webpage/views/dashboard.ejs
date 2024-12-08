@@ -15,30 +15,31 @@
 <body>
     <div class="main-container-dash">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height:100vh;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <img src="{% static '/images/logo.png' %}" width="40" height="32" alt="Agritech Logo">
-            <span class="fs-4 logo-title"><span>AGRI</span>TECH</span>
+            <a href="/" class="a-logo d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
+            <img src="/images/logo.png" width="40" height="32" alt="Agritech Logo">
+            <!-- {% static '/images/logo.png' %} -->
+            <span class="fs-4 logo-title"><span class="hide"><span>AGRI</span>TECH</span></span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
                 <a href="/" class="nav-link text-white" aria-current="page">
                     <img width="20" height="20" style="margin-right: 5px;" src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" alt="home--v1"/>
-                Home
+                    <span class="hide">Home</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="nav-link active">
                     <img width="20" height="20" style="margin-right: 5px;" src="https://img.icons8.com/ios/50/FFFFFF/dashboard.png" alt="dashboard"/>
-                Dashboard
+                <span class="hide">Dashboard</span>
                 </a>
             </li>
             </ul>
             <hr>
             <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <!-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
-                <strong>Account</strong>
+                <img class="account-img" src="https://img.icons8.com/material-rounded/24/FFFFFF/guest-male.png" alt="" width="28" height="28" class="rounded-circle me-2">
+                <strong><span class="hide">Account</span></strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item" href="/detect">Detect</a></li>
@@ -53,11 +54,11 @@
         <div class="dashboard-sec">
             <h1>Hi {{user.first_name}}!</h1>
             <hr class="featurette-divider">
-            <div class="dashboard-flex">
-                <h2>Welcome to your Dashboard!</h2>
+            <div class="dash-welcome dashboard-flex">
+                <h2><span class="small-font">Welcome to your</span> Dashboard!</h2>
                 <p style="font-size: 20px;">Here you can see your previous results and other details.</p>
 
-                <div class="px-4 py-0 my-5 text-center">
+                <div class="new-detect px-4 py-0 text-center">
                     <h1 class="display-5 fw-bold text-body-emphasis">New Detection</h1>
                     <div class="col-lg-6 mx-auto">
                       <p class="lead mb-4">Let our AI analyze and detect plant diseases for you—quickly and accurately.</p>
@@ -68,17 +69,75 @@
                     </div>
                 </div>
 
-                <h2>Previous Results</h2>
-                <p style="font-size: 20px;">Take a look at your previous detections!</p>
-                <ol>
-                {% for detection in detections %}
-                    <li>
-                        <a href="{% url 'disease_detector:result' detection.id %}">
-                            {{detection.result}} detected on {{detection.date}}
-                        </a>
-                    </li>
-                {% endfor %}
-                </ol>
+                <div class="prev-results">
+                    <h2>Previous Results</h2>
+                    <p style="font-size: 20px;">Take a look at your previous detections!</p>
+                    <ol>
+                    <!-- {% for detection in detections %} -->
+                        <li>
+                            <a href="{% url 'disease_detector:result' detection.id %}"></a>
+                            <img width="40" height="40" src="https://img.icons8.com/ios-filled/30/virus.png" alt="virus"/>
+                                <div class="tab">
+                                    <p class="disease-name">Tomato Late Blight</p>
+                                    <p class="date"><span class="hide">Detected on </span>12.01.24</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'disease_detector:result' detection.id %}"></a>
+                            <img width="40" height="40" src="https://img.icons8.com/ios-filled/30/virus.png" alt="virus"/>
+                                <div class="tab">
+                                    <p class="disease-name">Tomato Late Blight</p>
+                                    <p class="date"><span class="hide">Detected on </span>12.01.24</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'disease_detector:result' detection.id %}"></a>
+                            <img width="40" height="40" src="https://img.icons8.com/ios-filled/30/virus.png" alt="virus"/>
+                                <div class="tab">
+                                    <p class="disease-name">Tomato Late Blight</p>
+                                    <p class="date"><span class="hide">Detected on </span>12.01.24</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'disease_detector:result' detection.id %}"></a>
+                            <img width="40" height="40" src="https://img.icons8.com/ios-filled/30/virus.png" alt="virus"/>
+                                <div class="tab">
+                                    <p class="disease-name">Tomato Late Blight</p>
+                                    <p class="date"><span class="hide">Detected on </span>12.01.24</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'disease_detector:result' detection.id %}"></a>
+                            <img width="40" height="40" src="https://img.icons8.com/ios-filled/30/virus.png" alt="virus"/>
+                                <div class="tab">
+                                    <p class="disease-name">Tomato Late Blight</p>
+                                    <p class="date"><span class="hide">Detected on </span>12.01.24</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{% url 'disease_detector:result' detection.id %}"></a>
+                            <img width="40" height="40" src="https://img.icons8.com/ios-filled/30/virus.png" alt="virus"/>
+                                <div class="tab">
+                                    <p class="disease-name">Tomato Late Blight</p>
+                                    <p class="date"><span class="hide">Detected on </span>12.01.24</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                    <!-- {% endfor %} -->
+                    </ol>
+                </div>
+
             </div>
         </div>
     </div>
