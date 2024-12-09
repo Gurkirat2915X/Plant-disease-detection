@@ -155,6 +155,34 @@ h1 {
   }
 }
 
+/* Existing styles... */
+
+.user {
+  background-color: #F4F6F8; /* User message bubble color */
+  color: black; /* Text color */
+  padding: 10px;
+  border-radius: 15px 15px 0 15px; /* Rounded corners */
+  margin: 5px 0;
+  max-width: 70%; /* Limit the width */
+  align-self: flex-end; /* Align to the right */
+}
+
+.bot {
+  background-color: #F4F6F8; /* Bot message bubble color */
+  color: black; /* Text color */
+  padding: 10px;
+  border-radius: 15px 15px 15px 0; /* Rounded corners */
+  margin: 5px 0;
+  max-width: 70%; /* Limit the width */
+  align-self: flex-start; /* Align to the left */
+}
+
+#chatbot-messages {
+  display: flex;
+  flex-direction: column; /* Ensure messages stack vertically */
+  gap: 5px; /* Space between messages */
+}
+
 @media(min-width: 319px) and (max-width:550px){
 
   .chatbot-logo{

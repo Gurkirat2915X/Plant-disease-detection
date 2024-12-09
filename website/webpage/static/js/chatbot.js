@@ -26,9 +26,13 @@ function sendMessage() {
 
 function addMessage(message, sender) {
   const messageContainer = document.createElement('div');
-  messageContainer.classList.add(sender);
+  messageContainer.classList.add(sender); // 'user' or 'bot'
   messageContainer.textContent = message;
   document.getElementById('chatbot-messages').appendChild(messageContainer);
+  
+  // Scroll to the bottom of the messages
+  const messagesContainer = document.getElementById('chatbot-messages');
+  messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
 }
 
 function getBotResponse(userMessage) {
