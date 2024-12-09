@@ -65,7 +65,6 @@ def register(request):
                 last_name=last_name,
                 email=email,
             )
-            print("Very good")
             user.save()
         except Exception as e:
             return render(
