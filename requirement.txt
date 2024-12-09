@@ -1,4 +1,0 @@
-django
-django-cleanup
-pillow
-nltk
