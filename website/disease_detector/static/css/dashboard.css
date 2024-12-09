@@ -37,7 +37,295 @@
     font-style: normal;
     padding-top: 25px;
 }
-.scroll_result{
-    overflow-y: auto;
-    height: 100px;
+
+ol a {
+    text-decoration: none;
+    color: black;
+}
+
+ol {
+    display: inline-block;
+    background-color: #dfdfdf;
+    list-style-type: none;
+    padding: 15px !important;
+    border-radius: 5px;
+    width: 700px;
+    height: 350px;
+    overflow-y: scroll;
+}
+
+ol li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.disease-name{
+    font-size: 25px;
+    margin: 0;
+}
+
+.date {
+    margin: 0;
+}
+
+
+
+ol {
+    --sb-track-color: #a2a2a2;
+    --sb-thumb-color: #2e8eff;
+    --sb-size: 4px;
+  }
+  
+  ol::-webkit-scrollbar {
+    width: var(--sb-size)
+  }
+  
+  ol::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 5px;
+  }
+  
+  ol::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 5px;
+    
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+    ol {
+      scrollbar-color: var(--sb-thumb-color)
+                       var(--sb-track-color);
+    }
+  }
+  
+
+@media(min-width: 319px) and (max-width: 750px) {
+    .a-logo {
+        margin: 0 !important;
+    }
+
+    .main-container-dash > div {
+        width: 60px !important;
+    }
+
+    .main-container-dash > .d-flex {
+        padding: 8px !important;
+    }
+
+    .nav-link {
+        padding: 5px !important;
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-link > img {
+        display: block !important;
+        margin: auto !important;
+        width: 30px;
+        height: 30px;
+    }
+
+    .hide {
+        display: none !important;
+    }
+
+    .account-img {
+        margin: 0;
+        border-radius: 50%;
+    }
+
+    .dashboard-sec > h1{
+        font-size: 1.1rem !important;
+    }
+
+    .featurette-divider{
+        margin: 8px 20px 8px 0px;
+    }
+
+    .small-font{
+        font-size: 15px;
+    }
+
+    .dash-welcome > p{
+        margin: 0 !important;
+        font-size: 15px !important;
+    }
+
+    .new-detect {
+        margin: 20px 0px;
+    }
+
+    .new-detect h1{
+        font-size: 1.5rem;
+    }
+
+    .new-detect p{
+        font-size: 13px;
+    }
+
+    .prev-results ol {
+        margin-right: 15px !important;
+    }
+    .a-logo img{
+        margin: 10px 0px 0px 0px;
+    }
+    .prev-results p {
+        font-size: 12px !important;
+    }
+
+    ol {
+        width: 220px;
+        height: 300px;
+    }
+
+    ol li img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media(min-width: 751px) and (max-width: 1200px) {
+    .a-logo{
+        margin: 0 !important;
+    }
+
+    .main-container-dash > div {
+        width: 220px !important;  
+    }
+
+    ol {
+        width: 500px;
+        height: 300px;
+    }
+
+    .disease-name {
+        font-size: 20px;
+    }
+
+    .date {
+        font-size: 13px;
+    }
+
+    ol li img {
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+@media(min-width: 1201px) and (max-width: 1600px) {
+    ol {
+        height: 270px;
+    }
+}
+
+@media(min-width: 1601px) {
+    .logo-title{
+        font-family: "Poppins", sans-serif;
+        font-weight: 800;
+        font-style: normal;
+        color: #fdc10e;
+    }
+    
+    .logo-title > span {
+        color: #357529;
+    }
+    
+    .main-container{
+        display: flex;
+    }
+    
+    .dashboard-flex{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .main-container-dash{
+        display: flex;
+        gap: 20px;
+    }
+    
+    .dashboard-sec {
+        flex-grow: 2;
+    }
+    
+    .featurette-divider{
+        margin-right: 20px;
+    }
+    
+    .dashboard-sec > h1{
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        padding-top: 25px;
+    }
+
+    
+    ol a {
+        text-decoration: none;
+        color: black;
+    }
+
+    ol {
+        display: inline-block;
+        background-color: #dfdfdf;
+        list-style-type: none;
+        padding: 15px !important;
+        border-radius: 5px;
+        width: 700px;
+        height: 350px;
+        overflow-y: scroll;
+    }
+
+    ol li {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 10px;
+    }
+
+    .disease-name{
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .date {
+        margin: 0;
+    }
+
+    ol {
+        --sb-track-color: #a2a2a2;
+        --sb-thumb-color: #2e8eff;
+        --sb-size: 4px;
+    }
+    
+    ol::-webkit-scrollbar {
+        width: var(--sb-size)
+    }
+    
+    ol::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 5px;
+    }
+    
+    ol::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 5px;
+        
+    }
+    
+    @supports not selector(::-webkit-scrollbar) {
+        ol {
+        scrollbar-color: var(--sb-thumb-color)
+                        var(--sb-track-color);
+        }
+    }
 }

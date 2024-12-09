@@ -1,17 +1,17 @@
-<!-- {% if message %}
-        <div>{{ message }}</div>
-{% endif %} -->
+{% if message %}
+<div>{{ message }}</div>
+{% endif %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% load static %}
     <title>Agritech - Dashboard</title>
+    {% load static %}
     <link
       rel="icon"
       type="image/x-icon"
-      href="{% static 'icons/favicon.png' %}"
+      href="https://firebasestorage.googleapis.com/v0/b/fusion-appointment.appspot.com/o/favicon.png?alt=media&token=fc859baa-33d4-480e-a373-83466513325d"
     />
     <link rel="stylesheet" href="{% static '/css/dashboard.css' %}" />
     <link
@@ -35,7 +35,7 @@
       >
         <a
           href="/"
-          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+          class="a-logo d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none"
         >
           <img
             src="{% static '/images/logo.png' %}"
@@ -43,7 +43,9 @@
             height="32"
             alt="Agritech Logo"
           />
-          <span class="fs-4 logo-title"><span>AGRI</span>TECH</span>
+          <span class="fs-4 logo-title"
+            ><span class="hide"><span>AGRI</span>TECH</span></span
+          >
         </a>
         <hr />
         <ul class="nav nav-pills flex-column mb-auto">
@@ -56,11 +58,11 @@
                 src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png"
                 alt="home--v1"
               />
-              Home
+              <span class="hide">Home</span>
             </a>
           </li>
           <li>
-            <a href="/dashboard" class="nav-link active">
+            <a href="#" class="nav-link active">
               <img
                 width="20"
                 height="20"
@@ -68,7 +70,7 @@
                 src="https://img.icons8.com/ios/50/FFFFFF/dashboard.png"
                 alt="dashboard"
               />
-              Dashboard
+              <span class="hide">Dashboard</span>
             </a>
           </li>
         </ul>
@@ -80,8 +82,15 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <!-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
-            <strong>Account</strong>
+            <img
+              class="account-img"
+              src="https://img.icons8.com/material-rounded/24/FFFFFF/guest-male.png"
+              alt=""
+              width="28"
+              height="28"
+              class="rounded-circle me-2"
+            />
+            <strong><span class="hide">Account</span></strong>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             <li>
@@ -106,18 +115,15 @@
       </div>
 
       <div class="dashboard-sec">
-        {% if message %}
-          <div>{{ message }}</div>
-        {% endif %}
         <h1>Hi {{user.first_name}}!</h1>
         <hr class="featurette-divider" />
-        <div class="dashboard-flex">
-          <h2>Welcome to your Dashboard!</h2>
+        <div class="dash-welcome dashboard-flex">
+          <h2><span class="small-font">Welcome to your</span> Dashboard!</h2>
           <p style="font-size: 20px">
             Here you can see your previous results and other details.
           </p>
 
-          <div class="px-4 py-0 my-5 text-center">
+          <div class="new-detect px-4 py-0 text-center">
             <h1 class="display-5 fw-bold text-body-emphasis">New Detection</h1>
             <div class="col-lg-6 mx-auto">
               <p class="lead mb-4">
@@ -125,7 +131,7 @@
                 accurately.
               </p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="{% url 'disease_detector:detect' %}">
+                <a href="/detect">
                   <button
                     type="button"
                     class="btn btn-primary btn-lg px-4 gap-3"
@@ -137,18 +143,44 @@
             </div>
           </div>
 
-          <h2>Previous Results</h2>
-          <p style="font-size: 20px">
-            Take a look at your previous detections!
-          </p>
-          <div class="scroll_result">
+          <div class="prev-results">
+            <h2>Previous Results</h2>
+            <p style="font-size: 20px">
+              Take a look at your previous detections!
+            </p>
             <ol>
               {% for detection in detections %}
               <li>
                 <a href="{% url 'disease_detector:result' detection.id %}">
-                  {{detection.result}} detected on {{detection.date}}
+                  {% if detection.result %}
+                  <img
+                    width="30"
+                    height="30"
+                    src="https://img.icons8.com/ios-filled/30/virus.png"
+                    alt="virus"
+                  />
+                  {% else %}
+                  <img
+                    width="30"
+                    height="30"
+                    src="https://img.icons8.com/ios-filled/30/000000/ok.png"
+                    alt="ok"
+                  />
+                  {% endif %}
+                  <div class="tab">
+                    {% if detection.result %}
+                    <p class="disease-name">{{detection.result}}</p>
+                    {% else %}
+                    <p class="disease-name">No disease detected</p>
+                    {% endif %}
+
+                    <p class="date">
+                      <span class="hide">Detected on </span>{{detection.date}}
+                    </p>
+                  </div>
                 </a>
               </li>
+
               {% endfor %}
             </ol>
           </div>

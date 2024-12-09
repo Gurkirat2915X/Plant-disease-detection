@@ -9,10 +9,22 @@ Agritech - Result
 {% block content %} '
 {{detection.name}} 
 {% if detection.result == None %}
-<h1>Results</h1>
-<h2>Sorry, we could not detect any disease</h2>
-<h3>Image sent</h3>
-<img src="{{media_url}}{{detection.image}}" alt="Actual Disease" />
+<section id="results">
+  <div class="container my-5">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
+      <h1 class="text-body-emphasis">Results</h1>
+
+      <h2>No disease Detected</h2>
+
+      <h3>Image Uploaded</h3>
+      <img
+        class="sent-image"
+        src="{{media_url}}{{detection.image}}"
+        alt="Actual Disease"
+      />
+    </div>
+  </div>
+</section>
 {% else %}
 <section id="results">
   <div class="container my-5">
@@ -54,6 +66,13 @@ Agritech - Result
           </svg>
         </button>
       </a>
+      <br>
+      <div>
+        <h3>Treatment Recommendations</h3>
+      {% for tip in tips %}
+        <a>{{tip}}</a><br>
+      {% endfor %}
+      </div>
     </div>
   </div>
 </section>
