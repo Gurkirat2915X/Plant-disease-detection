@@ -12,14 +12,10 @@ import torch
 
 def detector(image, id):
     model = YOLO(settings.MEDIA_ROOT + "//models//best.pt")
-
     try:
         result = model(Image.open(image).convert("RGB"))
-        print("detector working")
-        # print(result)
         result_conv = json.loads(result[0].to_json())[0]
-        # print(result_conv)
-        result[0].save(settings.MEDIA_ROOT + "//detection_images//" + str(id) + ".jpg")
+        result[0].save(settings.MEDIA_ROOT + "/detection_images//" + str(id) + ".jpg")
         result_dict = {
             "name": result_conv["name"],
             "confidence": float(result_conv["confidence"]) * 100,
@@ -33,10 +29,11 @@ def detector(image, id):
             "name": None,
             "confidence": 0,
             "image": None,
+            "class": 8,
         }
 
 
-# Chatbot
+
 nltk.download("punkt_tab")
 stemmer = PorterStemmer()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -73,12 +70,10 @@ class NeuralNet(nn.Module):
         out = self.l2(out)
         out = self.relu(out)
         out = self.l3(out)
-        # no activation and no softmax at the end
         return out
 
 
 def chatbot(sentence):
-
     with open(settings.MEDIA_ROOT + "//Chatbot//intents.json", "r") as json_data:
         intents = json.load(json_data)
     FILE = settings.MEDIA_ROOT + "//Chatbot//data.pth"
@@ -162,5 +157,9 @@ care_tips = {
     7: {
         "disease": "Tomato Leaf Mold",
         "cure": ["Apply fungicides", "Improve air circulation", "Reduce humidity"],
+    },
+    8: {
+        "disease": "No found disease",
+        "cure": ["No cure"],
     },
 }

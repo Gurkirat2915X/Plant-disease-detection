@@ -2,34 +2,31 @@
 <link rel="stylesheet" href="{% static '/css/chatbot.css' %}" />
 <div id="chatbot-container" data-url="{% url 'disease_detector:chat' %}">
   <div id="chatbot-header">
-    AgriBot
+    <img src="{% static '/images/logo.png' %}" alt="Agritech Logo" width="35" height="35">
+    <div class="headers">
+      <h1>AgriBot</h1>
+      <p>Ask me anything!</p>
+    </div>
+    <button class="transcript-btn" onclick="downloadTranscript()">
+      <img width="25" height="25" src="https://img.icons8.com/pastel-glyph/25/download--v1.png" alt="download--v1"/>
+    </button>
     <button class="close-button" onclick="closeChatbot()">
-      <img
-        width="20"
-        height="20"
-        src="https://img.icons8.com/metro/26/FFFFFF/delete-sign.png"
-        alt="delete-sign"
-      />
+      <img width="20" height="20" src="https://img.icons8.com/material-rounded/24/chevron-down.png" alt="chevron-down"/>
     </button>
   </div>
-  <div id="chatbot-messages"></div>
-  <input type="text" id="user-input" placeholder="Ask me anything..." />
-  <button class="send-button" onclick="sendMessage()">
-    <img
-      width="22"
-      height="22"
-      src="https://img.icons8.com/material-sharp/24/FFFFFF/sent.png"
-      alt="sent"
-    />
-  </button>
+  <div id="chatbot-messages">
+
+  </div>
+  <div class="message-bar">
+    <input type="text" id="user-input" placeholder="Type a message"/>
+    <button class="send-button" onclick="sendMessage()">
+      <img width="22" height="22" src="https://img.icons8.com/material-sharp/24/FFFFFF/sent.png" alt="sent"/>
+    </button>
+  </div>
 </div>
+
 
 <div id="chatbot-button" onclick="toggleChatbot()">
-  <img
-    class="chatbot-logo"
-    src="{% static '/images/logo.png' %}"
-    alt="AgriBot"
-  />
+  <img class="chatbot-logo" src="{% static '/images/logo.png' %}" alt="AgriBot">
 </div>
-
 <script src="{% static '/js/chatbot.js' %}"></script>

@@ -3,32 +3,24 @@
 {% block title %}
 Agritech 
 {% endblock title %} 
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+{% endblock css_files %}
 {% block content %} 
 {% include 'layouts/chatbot.html' %}
 <section id="title">
   <div class="p-5 text-center bg-body-tertiary title-background">
     <div class="container py-5">
-      <img
-        class="jumbotron-logo"
-        src="{% static 'images/logo.png' %}"
-        alt="Agritech Logo"
-      />
-      <h1 class="text-body-emphasis jumbotron-h1">
-        <span style="color: white">AGRITECH</span>
-      </h1>
-      <p
-        class="col-lg-8 mx-auto lead jumbotron-p"
-      >
+      <img class="jumbotron-logo" src="{% static '/images/logo.png' %}" alt="Agritech Logo">
+      <h1 class="text-body-emphasis jumbotron-h1"><span style="color: white;">AGRITECH</span></h1>
+      <p class="col-lg-8 mx-auto lead jumbotron-p">
         Where Agriculture Meets Technology
       </p>
-      <a href="{% url 'disease_detector:login' %}">
-        <button
-          class="btn btn-primary px-5 mb-5 jumbotron-btn"
-          type="button"
-        >
-          Get Started
-        </button></a
-      >
+      <a href="#overview">
+      <button class="btn btn-primary px-5 mb-5 jumbotron-btn" type="button">
+      Learn More
+        </button></a>
     </div>
   </div>
 </section>
@@ -48,7 +40,7 @@ Agritech
           Anything Model (SAM) and YOLOv11, to develop a robust model for
           detecting diseased plants based on their leaves and stems.
         </p>
-        <a href="#main-project" class="btn btn-primary btn-lg"
+        <a href="{% url 'disease_detector:model_intro' %}" class="btn btn-primary btn-lg"
           >Explore
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -171,53 +163,6 @@ Agritech
     </div>
   </div>
 </section>
-<!-- to be edited for more content by Swapnil -->
-
-<!-- <section id="main-project">
-  <div class="container px-4 py-5">
-    <h2 class="pb-2">Technical Architecture</h2>
-    <div class="tech-arch">
-      <div class="code-snippet">
-        <pre>
-          <code class="language-python">
-            def plant_disease_detection_workflow(leaf_image):
-              # Segmentation using SAM 
-              segmented_regions = sam_predictor.segment(leaf_image) 
-              # Disease classification with YOLO 
-              disease_results = yolo_model.predict(segmented_regions) 
-    
-              # Generate comprehensive report 
-              return { 
-                'disease_type': disease_results.class_name,
-                'confidence_score': disease_results.confidence,
-                'affected_area_percentage': disease_results.area_percentage 
-              }
-          </code>
-        </pre>
-      </div>
-      <div class="code-explain">
-        <p>Our model follows a straightforward three-step process:</p>
-        <ol>
-          <li><span style="font-weight: 600;">Image Input & Segmentation:</span> Takes a plant image and uses SAM to precisely cut out individual leaf/stem regions</li>
-          <li><span style="font-weight: 600;">Disease Analysis:</span> YOLO examines these segments to identify specific diseases</li>
-          <li><span style="font-weight: 600;">Report Generation:</span> Creates a detailed report containing:
-          <ul>
-            <li>Type of disease detected.</li>
-            <li>How confident the model is about its diagnosis(confidence score)?</li>
-            <li>What percentage of the plant is affected?</li>
-          </ul></li>
-        </ol>
-        <p style="font-weight: 400; font-size:20px;">A digital plant doctor: analyzing plant parts, diagnosing diseases, and delivering a detailed health report! 🌿🔍</p> 
-      </div>
-    </div>
-  </div>
-    <div class="workflow-diagram container px-4 py-5">
-      <h2>Workflow Diagram</h2>
-      <img src="{% static 'images/workflow-diagram.png' %}" alt="Workflow diagram" style="height: 365px;">
-    </div>
-  </div>  
-</section> -->
-
 <script>
   document.getElementById("home_link").classList.add("active");
   document.getElementById("home_link").setAttribute("href", "#");
