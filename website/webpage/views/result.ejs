@@ -28,7 +28,10 @@
                 <img class="sent-image" src="/images/title-background.jpg" alt="Actual Disease">
                 <h3>Image Detected</h3>
                 <img class="received-image" src="/images/title-background.jpg" alt="Predicted Disease">
-                <h3>Confidence: {{detection.confidence}}%</h3>
+                <a class="download-btn" href="/images/title-background.jpg" download>
+                    <button type="button" class="btn btn-primary px-4 gap-3">Download</button>
+                </a>
+                <h3 class="conf-h3">Confidence: {{detection.confidence}}%</h3>
                 <p class="date">Detected on {{detection.date}}</p>
 
                 <a href="/detect">
