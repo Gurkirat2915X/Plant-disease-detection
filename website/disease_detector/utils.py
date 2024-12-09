@@ -15,11 +15,11 @@ def detector(image, id):
     try:
         result = model(Image.open(image).convert("RGB"))
         result_conv = json.loads(result[0].to_json())[0]
-        result[0].save(settings.MEDIA_ROOT + "/detection_images//" + str(id) + ".jpg")
+        result[0].save(settings.MEDIA_ROOT + "/detection_images/" + str(id) + ".jpg")
         result_dict = {
             "name": result_conv["name"],
             "confidence": float(result_conv["confidence"]) * 100,
-            "image": "//detection_images//" + str(id) + ".jpg",
+            "image": settings.MEDIA_ROOT + "/detection_images/" + str(id) + ".jpg",
             "class": result_conv["class"],
         }
         return result_dict
